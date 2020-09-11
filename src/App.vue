@@ -33,11 +33,7 @@ export default {
   methods:{
 
   },
-  // watch:{
-  //     '$route.path': function (newVal, oldVal){
-  //        console.log(newVal+'=========='+oldVal);
-  //   }
-  // },
+  
   components:{
     headerNav,
     footerNav
