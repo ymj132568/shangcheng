@@ -17,25 +17,18 @@ export default new Vuex.Store({
 		headerTitle:''
 	},
 	mutations: {
-		// shoppingCartAdd(state){
-		// 	state.count++
-		// },
-		// shoppingCartRemove(state){
-		// 	state.count--
-		// },
-		// 顶部显示
 		headerShow(state,status){
 			state.headerShow = status.header
 			state.headerTitle = status.slot
 		},
-		// 底部显示
+		
 		footerShow(state,status){
 			state.footerShow = status
 		},
-		// 加入购物车
+	
 		addGoCart(state,buyGoodsInfo){
 			let flag = true
-			// 判断购物车有没有相同数据
+			
 			state.car.some(item => {
 				if(item.id == buyGoodsInfo.id){
 					item.count += parseInt(buyGoodsInfo.count)
@@ -54,7 +47,6 @@ export default new Vuex.Store({
 			localStorage.setItem('car',JSON.stringify(state.car))
 		},
 
-		// 删除
 		removeGoods(state,id){
 			state.car.forEach((item,i) => {
 				id.forEach(items => {
@@ -66,7 +58,7 @@ export default new Vuex.Store({
 			})
 			localStorage.setItem('car',JSON.stringify(state.car))
 		},
-		// 修改购物车数量
+	
 		cartCount(state,goodsInfo){
 			state.car.some(item => {
 				if(item.id == goodsInfo.id){
@@ -76,7 +68,7 @@ export default new Vuex.Store({
 			})
 			localStorage.setItem('car',JSON.stringify(state.car))
 		},
-		// 增加收货地址
+
 		addAddress(state,addressInfo){
 			state.address.forEach(item => {
 				if(addressInfo.checked == true){
@@ -90,7 +82,7 @@ export default new Vuex.Store({
 			  	duration: 1000
 			})
 		},
-		// 修改收货地址
+	
 		editAddress(state,addressInfo){
 			state.address.some(item => {
 				if(item.id == addressInfo.id){
@@ -109,7 +101,7 @@ export default new Vuex.Store({
 			  	duration: 1000
 			})
 		},
-		// 删除收货地址
+		
 		removeAddress(state,id){
 			state.address.some((item,i) => {
 				if(item.id == id){
@@ -118,12 +110,12 @@ export default new Vuex.Store({
 				}
 			})
 		},
-		// 生成订单
+	
 		addOrder(state,order){
 			state.order.unshift(order)
 			localStorage.setItem('order',JSON.stringify(state.order))
 		},
-		// 付款
+	
 		buy(state,order){
 			state.order.some((item) => {
 				if(item.id == order.time){
